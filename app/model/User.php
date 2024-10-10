@@ -1,20 +1,23 @@
 <?php
 
-namespace sena\libs;
-
+namespace sena\model;
 use sena\libs\model;
 
-class User extends model
-{
+
+class User extends model{
+
     protected $table = "users";
 
-    public function __constructor()
-    {
-        parent::__constructor();
+    public function __construct(){
+        parent::__construct();
     }
 
-    public function getUsers()
+    public function getUsers(){
+        return $this->select($this->table);
+    }
+
+    public function getUse($id)
     {
-        return $this ->select($this -> table);
+        return $this ->getById($this -> $table, $id);
     }
 }
